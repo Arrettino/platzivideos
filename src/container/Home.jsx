@@ -13,7 +13,6 @@ function Home() {
   const videos = useInitialState(API);
   return (
     <>
-      <Header />
       <Search />
       {videos.mylist.length > 0 && (
         <Categories title='My List'>
@@ -66,7 +65,6 @@ function Home() {
           </Carousel>
         </Categories>
       )}
-      <Footer />
     </>
 
   );

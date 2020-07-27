@@ -13,9 +13,9 @@ function Login() {
           <input className='input' type='password' placeholder='Contraseña' />
           <button type='button' className='button'>Iniciar sesión</button>
           <div className='login__container--remember-me'>
-            <label>
+            <label htmlFor='cbox1'>
               <input type='checkbox' id='cbox1' value='first_checkbox' />
-              Recuérdame
+              <p>Recuérdame</p>
             </label>
             <a href='/'>Olvidé mi contraseña</a>
           </div>
@@ -23,11 +23,11 @@ function Login() {
         <section className='login__container--social-media'>
           <div>
             <img src={googleIcon} alt='Google Icon' />
-            Inicia sesión con Google
+            <p>Inicia sesión con Google</p>
           </div>
           <div>
             <img src={twitterIcon} alt='Twitter Icon' />
-            Inicia sesión con Twitter
+            <p>Inicia sesión con Twitter</p>
           </div>
         </section>
         <p className='login__container--register'>
