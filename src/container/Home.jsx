@@ -1,21 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
-import useInitialState from '../hooks/useInitialState';
 import '../assets/styles/App.scss';
 
-function Home() {
-  const API = 'http://localhost:3000/initalState';
-  const videos = useInitialState(API);
+function Home({ myList, trends, originals }) {
   return (
     <>
       <Search />
-      {videos.mylist.length > 0 && (
+      {myList.length > 0 && (
         <Categories title='My List'>
           <Carousel>
-            {videos.mylist.map(
+            {myList.map(
               (item) => (
                 <CarouselItem
                   key={item.id}
@@ -29,10 +27,10 @@ function Home() {
           </Carousel>
         </Categories>
       )}
-      {videos.trends.length > 0 && (
+      {trends.length > 0 && (
         <Categories title='Trends'>
           <Carousel>
-            {videos.trends.map(
+            {trends.map(
               (item) => (
                 <CarouselItem
                   key={item.id}
@@ -46,10 +44,10 @@ function Home() {
           </Carousel>
         </Categories>
       )}
-      {videos.originals.length > 0 && (
+      {originals.length > 0 && (
         <Categories title='Originals'>
           <Carousel>
-            {videos.originals.map(
+            {originals.map(
               (item) => (
                 <CarouselItem
                   key={item.id}
@@ -68,4 +66,12 @@ function Home() {
   );
 }
 
-export default Home;
+function mapStateToProps(state) {
+  return ({
+    myList: state.mylist,
+    trends: state.trends,
+    originals: state.originals,
+  });
+}
+
+export default connect(mapStateToProps, null)(Home);
