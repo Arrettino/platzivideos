@@ -35,6 +35,7 @@ function Home({ myList, trends, originals }) {
               (item) => (
                 <CarouselItem
                   key={item.id}
+                  id={item.id}
                   cover={item.cover}
                   year={item.year}
                   contentRating={item.contentRating}
